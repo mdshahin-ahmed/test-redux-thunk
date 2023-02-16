@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Cart from "../components/Cart";
 
 const WishListPage = () => {
-  const { wishList } = useSelector((state) => state);
+  const { wishList } = useSelector((state) => state.product);
   let content;
 
   if (wishList.length === 0) {

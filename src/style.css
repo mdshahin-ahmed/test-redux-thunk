@@ -19,6 +19,5 @@
   background-color: rgb(209, 211, 211);
 }
 .filterButton:hover {
-  background-color: #0b5ed7;
-  color: white;
+  background-color: #bbbbbb;
 }
