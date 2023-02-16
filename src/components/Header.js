@@ -7,7 +7,7 @@ import "../style.css";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const { cart, wishList } = useSelector((state) => state);
+  const { cart, wishList } = useSelector((state) => state.product);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
