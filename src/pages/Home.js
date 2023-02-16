@@ -1,33 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 // import { useDispatch, useSelector } from "react-redux";
 import Cart from "../components/Cart";
 import FilterButton from "../components/FilterButton";
-// import { loadProduct } from "../redux/actionCreators/productActionCreators";
+import fetchProducts from "../redux/thunk/products/fetchProducts";
 
 const Home = () => {
+  const { products } = useSelector((state) => state.product);
   const { filters } = useSelector((state) => state.filter);
   const { brand, stock } = filters;
-
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch("https://test-redux-server.vercel.app/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data.data));
-  }, []);
-
-  // const { products } = useSelector((state) => state);
-  // // console.log(products);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   // dispatch(loading());
-  //   fetch("products.json")
-  //     .then((res) => res.json())
-  //     .then((data) => dispatch(loadProduct(data)));
-  //   //   .catch(dispatch(error()));
-  // }, [dispatch]);
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   let content;
 

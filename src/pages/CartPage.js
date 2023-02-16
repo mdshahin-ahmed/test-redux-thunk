@@ -15,7 +15,7 @@ const CartPage = () => {
     content = (
       <div className="row">
         {cart
-          .sort((a, b) => a._id - b._id)
+          .sort((a, b) => a.cartPosition - b.cartPosition)
           .map((product) => (
             <div key={product._id} className=" col-md-4 d-flex">
               <Cart key={product._id} product={product}></Cart>
