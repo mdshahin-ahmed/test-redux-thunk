@@ -24,7 +24,7 @@ const WishListPage = () => {
     );
   }
 
-  return <div>{content}</div>;
+  return <div className="container">{content}</div>;
 };
 
 export default WishListPage;

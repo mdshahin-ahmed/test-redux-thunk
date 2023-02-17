@@ -17,7 +17,7 @@ function App() {
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/home" element={<Home></Home>}></Route>
           </Routes> */}
-          <div className="container shadow mt-4">
+          <div>
             <AppRoutes />
           </div>
         </Router>

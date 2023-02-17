@@ -58,7 +58,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <FilterButton />
       {content}
     </div>

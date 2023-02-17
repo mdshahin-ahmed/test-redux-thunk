@@ -20,6 +20,9 @@ const Header = () => {
             <Nav.Link as={Link} to="/home">
               Home
             </Nav.Link>
+            <Nav.Link as={Link} to="/dashboard">
+              Dashboard
+            </Nav.Link>
             <Nav.Link as={Link} to="/cart">
               <div style={{ position: "relative" }}>
                 <div>

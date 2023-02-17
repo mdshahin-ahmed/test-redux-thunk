@@ -25,7 +25,7 @@ const CartPage = () => {
     );
   }
 
-  return <div>{content}</div>;
+  return <div className="container">{content}</div>;
 };
 
 export default CartPage;
