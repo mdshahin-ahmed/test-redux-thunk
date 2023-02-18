@@ -1,13 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
+  const { pathname } = useLocation();
   return (
     <div className="sidebarWrap">
       <h3>Dashboard</h3>
       <div>
-        <Link to="/dashboard/product-list">Product List</Link>
-        <Link to="/dashboard/add-product">Add Product</Link>
+        <Link
+          className={`${
+            pathname.includes("/dashboard/product-list") ? "activeLink" : null
+          }`}
+          to="/dashboard/product-list"
+        >
+          Product List
+        </Link>
+        <Link
+          className={`${
+            pathname.includes("/dashboard/add-product") ? "activeLink" : null
+          }`}
+          to="/dashboard/add-product"
+        >
+          Add Product
+        </Link>
       </div>
     </div>
   );

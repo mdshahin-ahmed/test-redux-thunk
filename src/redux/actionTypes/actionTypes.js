@@ -5,6 +5,8 @@ export const ADD_TO_CART = "ADD_TO_CART";
 export const ADD_TO_WISH_LIST = "ADD_TO_WISH_LIST";
 export const REMOVE_TO_CART = "REMOVE_TO_CART";
 export const REMOVE_TO_WISH_LIST = "REMOVE_TO_WISH_LIST";
+export const ADD_PRODUCT = "ADD_PRODUCT";
+export const DELETE_PRODUCT = "DELETE_PRODUCT";
 
 // filter types
 

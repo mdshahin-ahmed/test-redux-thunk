@@ -1,7 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../redux/actionCreators/productActionCreators";
+import addProductData from "../redux/thunk/products/addProductData";
 
 const AddProduct = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -24,10 +28,11 @@ const AddProduct = () => {
       image,
       brand,
       price,
-      status,
+      status: Boolean(status),
       keyFeature: [keyFeature1, keyFeature2, keyFeature3, keyFeature4],
     };
-    console.log(product);
+    // console.log(product);
+    dispatch(addProductData(product));
   };
 
   return (

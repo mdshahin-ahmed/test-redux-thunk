@@ -68,3 +68,14 @@ select {
   border-radius: 5px;
   border: none;
 }
+.productListWrap {
+  margin: 50px 0px 0px 50px;
+  width: calc(100vw - 245px);
+}
+.activeLink {
+  background: #ff0066;
+  color: white;
+}
+.actionIcons {
+  cursor: pointer;
+}
