@@ -9,7 +9,11 @@ const Sidebar = () => {
       <div>
         <Link
           className={`${
-            pathname.includes("/dashboard/product-list") ? "activeLink" : null
+            (pathname.includes("/dashboard/product-list") ||
+              pathname.includes("/dashboard")) &&
+            !pathname.includes("/dashboard/add-product")
+              ? "activeLink"
+              : null
           }`}
           to="/dashboard/product-list"
         >

@@ -4,14 +4,26 @@ import fetchProducts from "../redux/thunk/products/fetchProducts";
 import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from "react-icons/ai";
 import deleteProductData from "../redux/thunk/products/deleteProductData";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ProductList = () => {
   const { products } = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+
+  const handleNavigate = (id) => {
+    if (pathname.includes("product-list")) {
+      navigate(id);
+    } else {
+      navigate(`product-list/${id}`);
+    }
+  };
 
   return (
     <div className="productListWrap">
@@ -37,7 +49,7 @@ const ProductList = () => {
                 <td>{price}</td>
                 <td>
                   <div className="actionIcons">
-                    <CiEdit />
+                    <CiEdit onClick={() => handleNavigate(_id)} />
                     <AiOutlineDelete
                       onClick={() => dispatch(deleteProductData(_id))}
                       className="ms-3"

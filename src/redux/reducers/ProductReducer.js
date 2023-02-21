@@ -3,12 +3,16 @@ import {
   ADD_TO_CART,
   ADD_TO_WISH_LIST,
   DELETE_PRODUCT,
+  INPUT_STRING,
   LOAD_PRODUCTS,
+  LOAD_SINGLE_PRODUCT,
   REMOVE_TO_CART,
   REMOVE_TO_WISH_LIST,
+  UPDATE_PRODUCT,
 } from "../actionTypes/actionTypes";
 
 const initialState = {
+  product: {},
   products: [],
   cart: [],
   wishList: [],
@@ -26,6 +30,32 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         products: action.payload,
+      };
+    case INPUT_STRING:
+      return {
+        ...state,
+        product: {
+          ...state.product,
+          [action.payload.name]: action.payload.value,
+        },
+      };
+    case LOAD_SINGLE_PRODUCT:
+      return {
+        ...state,
+        product: action.payload,
+      };
+    case UPDATE_PRODUCT:
+      console.log(action);
+      return {
+        ...state,
+        products: state.products.map((product) => {
+          if (product._id === action.payload._id) {
+            return {
+              ...product,
+              ...action.payload.updatedProduct,
+            };
+          } else return product;
+        }),
       };
     case ADD_PRODUCT:
       return {
